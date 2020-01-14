@@ -1,5 +1,204 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import './theme.scss';
+
 :root {
-    --primary-color: rgb(0, 75, 122);
-    --secondary-color: rgb(102, 173, 68);
+  --primary-color: #004b7a;
+  --secondary-color: #66ad44;
+  // --primary-color: rgb(0, 75, 122);
+  // --secondary-color: rgb(102, 173, 68);
+  
+  --dark-primary-text: rgba(black, 0.87);
+  --light-primary-text: white;
+   --theme-primary-50: #84d0ff;
+  --theme-primary-100: #38b2ff;
+  --theme-primary-200: #009dff;
+  --theme-primary-300: #0071b7;
+  --theme-primary-400: #005e99;
+  --theme-primary-500: var(--primary-color);
+  --theme-primary-600: #00385b;
+  --theme-primary-700: #00253d;
+  --theme-primary-800: #00131e;
+  --theme-primary-900: #000000;
+  --theme-primary-A100: #7accff;
+  --theme-primary-A200: #14a4ff;
+  --theme-primary-A400: #006aad;
+  --theme-primary-A700: #005b93;
+
+  --theme-primary-contrast-50: var(--dark-primary-text);
+  --theme-primary-contrast-100: var(--dark-primary-text);
+  --theme-primary-contrast-200: var(--dark-primary-text);
+  --theme-primary-contrast-300: var(--dark-primary-text);
+  --theme-primary-contrast-400: var(--dark-primary-text);
+  --theme-primary-contrast-500: var(--light-primary-text);
+  --theme-primary-contrast-600: var(--light-primary-text);
+  --theme-primary-contrast-700: var(--light-primary-text);
+  --theme-primary-contrast-800: var(--light-primary-text);
+  --theme-primary-contrast-900: var(--light-primary-text);
+  --theme-primary-contrast-A100: var(--dark-primary-text);
+  --theme-primary-contrast-A200: var(--light-primary-text);
+  --theme-primary-contrast-A400: var(--light-primary-text);
+  --theme-primary-contrast-A700: var(--light-primary-text);
+
+  --theme-secondary-50: #fdfefc;
+  --theme-secondary-100: #d1e8c5;
+  --theme-secondary-200: #b0d99d;
+  --theme-secondary-300: #87c46a;
+  --theme-secondary-400: #75bc54;
+  --theme-secondary-500: var(--secondary-color);
+  --theme-secondary-600: #59973b;
+  --theme-secondary-700: #4c8133;
+  --theme-secondary-800: #3f6b2a;
+  --theme-secondary-900: #325521;
+  --theme-secondary-A100: #f6fdf3;
+  --theme-secondary-A200: #b6f09a;
+  --theme-secondary-A400: #7bd252;
+  --theme-secondary-A700: #70c04a;
+
+  --theme-secondary-contrast-50: var(--dark-primary-text);
+  --theme-secondary-contrast-100: var(--dark-primary-text);
+  --theme-secondary-contrast-200: var(--dark-primary-text);
+  --theme-secondary-contrast-300: var(--dark-primary-text);
+  --theme-secondary-contrast-400: var(--dark-primary-text);
+  --theme-secondary-contrast-500: var(--light-primary-text);
+  --theme-secondary-contrast-600: var(--light-primary-text);
+  --theme-secondary-contrast-700: var(--light-primary-text);
+  --theme-secondary-contrast-800: var(--light-primary-text);
+  --theme-secondary-contrast-900: var(--light-primary-text);
+  --theme-secondary-contrast-A100: var(--dark-primary-text);
+  --theme-secondary-contrast-A200: var(--light-primary-text);
+  --theme-secondary-contrast-A400: var(--light-primary-text);
+  --theme-secondary-contrast-A700: var(--light-primary-text);
+}
+
+$my-custom-primary: mat-palette($dynamic-theme-primary);
+$my-custom-accent: mat-palette($dynamic-theme-secondary);
+
+$my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent);
+@include angular-material-theme($my-custom-theme);
+
+.dark-mode {
+  $my-dark-theme: mat-dark-theme($my-custom-primary, $my-custom-accent);
+  @include angular-material-theme($my-dark-theme);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  justify-content: space-between;
+}
+
+.mat-sidenav-container {
+  height: calc(100% - 64px);
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.mat-nav-list .mat-list-item {
+  font-size: 15px;
+}
+
+.mat-sidenav,
+.mat-sidenav-content {
+  padding: 15px;
+}
+
+.mat-sidenav-content {
+  padding: 25px 40px 0;
+}
+
+.mat-sidenav {
+  // background-color: #F2F2F2;
+  width: 250px;
+}
+
+.header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+mat-sidenav mat-icon {
+  margin-right: 12px;
+}
+
+.hamburger {
+  margin-top: 5px;
+  cursor: pointer;
+  visibility: visible !important;
+}
+
+.controlers-wrapper > * {
+  width: 100%;
+  padding: 0;
+}
+
+.misc-bottom-padding {
+  margin: 8px 0 10px;
+}
+
+.misc-bottom-padding mat-label {
+  margin-right: 15px;
+}
+
+mat-radio-group mat-radio-button {
+  margin-left: 5px;
+}
+
+.button-wrapper button {
+  margin-right: 5px;
+}
+
+table.mat-table,
+table {
+  width: 100%;
+}
+
+body .mat-list-item {
+  margin-bottom: 10px;
+}
+
+.inner-wrapper {
+  padding: 15px 0 130px;
+  width: 100%;
+}
+
+.inner-wrapper mat-card {
+  display: inline-block;
+  margin: 0 6% 0 0;
+  vertical-align: top;
+  width: 44%;
+}
+
+body .push-right {
+  margin-right: 10px;
+}
+
+.title-group {
+  margin-bottom: 25px;
+}
+
+.card-deck-container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  border-radius: 2px;
+  padding: 10px 10px 30px;
+  margin: 10px 10px 10px 10px;
+  // background-color: #f5f5f5;
+}
+
+.card-item {
+  padding: 3px 3px 3px 3px;
 }
